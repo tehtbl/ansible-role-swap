@@ -14,7 +14,7 @@
 
 - name: disable swap file
   shell: test -f {{ swap_path }} && swapoff {{ swap_path }} || true
-  changed_when: False
+  changed_when: false
   when: swap_delete | bool
 
 - name: create swap file
