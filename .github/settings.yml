@@ -1,4 +1,4 @@
 ---
 repository:
-  description: Install and configure swap space on a system.
+  description: Install and configure a swap space on your system.
   homepage: https://github.com/tehtbl/ansible-role-swap
