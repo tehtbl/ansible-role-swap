@@ -6,4 +6,3 @@
 
   roles:
     - role: swap
-      swap_parameter: value
