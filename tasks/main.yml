@@ -10,7 +10,9 @@
     state: "present"
     reload: true
   with_dict: "{{ swap_sysctl }}"
-  when: not swap_delete | bool
+  when:
+    - not swap_delete | bool
+    - ansible_connection != "docker"
 
 - name: disable swap file
   shell: test -f {{ swap_path }} && swapoff {{ swap_path }} || true
@@ -51,6 +53,7 @@
   when:
     - swap_register_create is changed
     - not swap_delete | bool
+    - ansible_connection != "docker"
 
 - name: manage swap file in /etc/fstab
   mount:
